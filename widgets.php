@@ -11,13 +11,12 @@ function ebor_contact_load_widgets()
 
 class ebor_contact_Widget extends WP_Widget {
 	
-	function ebor_contact_Widget()
-	{
-		$widget_ops = array('classname' => 'ebor_contact', 'description' => '');
-
-		$control_ops = array('id_base' => 'ebor_contact-widget');
-
-		$this->WP_Widget('ebor_contact-widget', 'Rise: Contact Details', $widget_ops, $control_ops);
+	function ebor_contact_Widget(){
+		parent::__construct(
+			'ebor_contact-widget', // Base ID
+			__('Rise: Contact Details', 'ebor_framework'), // Name
+			array( 'description' => __( 'Add a contact details widget', 'ebor_framework' ), ) // Args
+		);
 	}
 	
 	function widget($args, $instance)
